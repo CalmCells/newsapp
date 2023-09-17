@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News Reporting App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generate Multi-Perspective Report and Timeline for a News Headline</h1>
+    <form method="POST">
+        <label for="headline">Enter a News Headline:</label>
+        <input type="text" name="headline" required>
+        
+        <p>Select an option:</p>
+        <div class="radio-group">
+            <input type="radio" name="option" value="multiperspective" required> Multi-Perspective
+            <input type="radio" name="option" value="timeline" required> Timeline
+        </div>
+        
+        <input type="submit" value="Generate Report">
+    </form>
+
+    {% if headline %}
+    <h2>News Headline:</h2>
+    <p>{{ headline }}</p>
+
+    {% if output %}
+    <h2>Generated Report:</h2>
+    <p>{{ output }}</p>
+    {% endif %}
+    {% endif %}
+</body>
+</html>

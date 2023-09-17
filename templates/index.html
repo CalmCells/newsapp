@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News Reporting App</title>
+</head>
+<body>
+    <h1>Generate Multi-Perspective Report and Timeline for a News Headline</h1>
+    <form method="POST">
+        <label for="headline">Enter a News Headline:</label>
+        <input type="text" name="headline" required>
+        <input type="submit" value="Generate Report">
+    </form>
+
+    {% if headline %}
+    <h2>News Headline:</h2>
+    <p>{{ headline }}</p>
+
+    {% if output %}
+    <h2>Generated Report:</h2>
+    <p>{{ output }}</p>
+    
+    {% if remaining_output %}
+    <form method="POST">
+        <input type="hidden" name="headline" value="{{ headline }}">
+        <input type="submit" value="Continue Generating">
+    </form>
+    {% endif %}
+    
+    {% endif %}
+    {% endif %}
+</body>
+</html>
